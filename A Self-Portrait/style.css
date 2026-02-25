@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    
+    min-height: 100vh;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+    justify-content: center; 
+    background-image: url('assets/BG.png');
+    background-size: cover;  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    font-size: 1.5rem; 
+}
+
+
+
+
+img {
+  height: 150px;
+  border-radius: 20px;
+  padding: 10px;
+  transition: 1s;
+  /*      border: 3px solid blue; */
+}
+
+img:hover {
+  height: 200px;
+  /*   border: 1px solid red; */
+}
+
+p:hover {
+  /*   transform: rotate(5deg); */
+  letter-spacing: 0.2em;
+}
+
+.specialCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1,
+a {
+  animation: coolAnimation 3s infinite;
+}
+
+#p1 {
+  animation: coolAnimation 5s infinite;
+}
+
+@keyframes coolAnimation {
+  0% {
+    color: #FFC0CB;  /* 浅粉红 */
+  }
+  25% {
+    color: #FFB6C1;  /* 浅粉 */
+  }
+  50% {
+    color: #FF69B4;  /* 热粉色 */
+  }
+  75% {
+    color: #FF1493;  /* 深粉红 */
+  }
+  100% {
+    color: #FFC0CB;  /* 回到浅粉红 */
+  }
+}
