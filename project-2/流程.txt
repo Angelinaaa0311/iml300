@@ -1,0 +1,437 @@
+注意：图片切入切出需要加渐入渐出效果
+
+
+首页： Crush Island（大标题），start按钮，点击播放BG1.mov(循环播放），音频1.mp3（循环）
+(背景：海滩 文件名 BG1.mov)
+
+点击start 进入（背景：一个下班的城市街道动图  文件名 BG2.mov）
+
+你是一个母胎单身的自由插画师。
+刚结束了一个大项目，你终于迎来了一个长达两个月的假期。
+You're a freelance illustrator who's never been in a relationship.
+Having just wrapped up a big project, you finally welcome a long vacation that lasts two months.（点击屏幕）
+
+切换图片（背景：温馨的卧室，清晨的阳光透过窗帘 文件名 BG3.jpg）
+
+点击：
+早晨，你正陷在柔软的被子里做着美梦——
+In the morning, you're buried in your soft blanket, lost in a sweet dream —
+
+点击：
+插入手机图片（加点震动效果，在右边）：（角落出现一个电话图标，持续震动+响铃 电话素材文件名Call.PNG 2.mp3）
+一阵急促的铃声把你从梦里拽了出来。
+A sudden, urgent ringtone yanks you out of your dream.
+
+
+（点击电话图标）
+（电话放大到屏幕中央）
+你迷迷糊糊地接起电话，闺蜜熟悉的声音从听筒里炸开：
+“喂——！你是不是放假了？！”
+（震一下体现出声音大）
+Still half-asleep, you fumble to answer the phone. Your best friend's familiar voice explodes from the receiver:
+"Hellooo—! You're on break, aren't you?!"
+
+点击：
+你还没完全清醒，以为这又是一轮例行催婚。正要敷衍两句挂掉，她却兴奋地宣布：
+“我帮你报了个恋爱综艺！海岛！包吃包住！免费！你就当去度假了！”
+You're still not fully awake, assuming this is just another round of her usual nagging about finding a partner. Just as you're about to mumble a few敷衍 words and hang up, she excitedly announces:
+"I signed you up for a dating show! On an island! All-inclusive! Free! Just think of it as a vacation!"
+
+点击：
+（电话猛地抖动，屏幕跟着震了一下）（背景图片跟着震动一下）
+你瞬间清醒了。
+“等等！什么？”
+还没来得及拒绝，手机又震了一下。一条新消息弹出来：
+节目组录制邀请函已发送至您的邮箱。
+You snap awake instantly.
+"Wait—what?"
+Before you can even refuse, your phone buzzes again. A new message pops up:
+"Program Invitation has been sent to your email."
+
+点击：
+（手机发出收到消息的音效，3.mp3）
+你盯着屏幕上那行字，彻底沉默了。
+说实话，你从小到大就没搞明白，“喜欢”到底是一种什么感觉。
+心动是什么？合适又是什么？你连自己的类型都说不清。
+…
+You stare at the words on the screen, falling completely silent.
+To be honest, you've never really understood what "liking someone" even feels like. Not since you were a kid.
+What is a racing heart? What does "compatible" even mean? You can't even put your own "type" into words.
+......
+
+
+点击：
+（手机淡出，消失）
+
+
+（此时出现两个选项）按钮
+A 去
+B 不去
+A. Go
+B. Don't go
+
+
+（选B）黑色背景，播放文字
+你没有去，宅在家里度过了一个愉快的假期。
+（黑屏结束）
+达成结局：宅女
+You decide not to go. You spend the entire vacation happily holed up at home.
+Ending Achieved: Homebody
+
+
+（选A），黑色背景，播放文字
+算了。
+反正闲着也是闲着。
+Ah, whatever.
+It's not like you have anything better to do.
+
+
+
+
+点击：
+（背景：机场 文件名：BGairport.jpg ）
+
+点击：
+几天后，你拖着行李箱，登上了飞往海岛的航班。
+A few days later, you drag your suitcase along and board the flight to the island.
+
+点击：左上角（day 1）
+（第一天）
+（背景：海岛视频 文件名：BGsea.mov）
+（音效：海浪声海鸥声）
+
+点击：
+登上海岛，节目组为你们准备了一场破冰晚宴，
+As you step onto the island, the production team has prepared an icebreaker dinner for everyone.
+
+点击
+（切换背景：海岛晚宴 文件名Dinner.jpg）
+
+点击
+你第一次见到了本次节目的四个男嘉宾。
+For the first time, you meet the four male guests of the show.
+
+2*2展示
+（出现男嘉宾的头像 点开可以查看他们具体的信息 以及当天的表现）
+（男嘉宾头像文件名 A对应Lu.PNG B Mo.PNG C Xia.PNG D Zuo.PNG）
+A 潮牌主理人 笑容灿烂 一见面就和大家主动碰杯握手 看上去很是自来熟
+B 心理咨询师 安静地站在一旁 看到你时微微一笑 说话声音很轻
+C 户外领队 靠在栏杆上看海 皮肤被晒成健康的小麦色 对你点头示意
+D 建筑师 热心的帮节目组摆好了椅子 动作利落 进行了简单的自我介绍
+
+
+点击其中一个头像展示内容：半透明背景
+A – Streetwear brand founder. He's got a brilliant smile and immediately starts making the rounds—clinking glasses, shaking hands, acting like he's known everyone for years.
+B – A psychologist. He stands quietly at the edge of the group. When he catches your eye, he gives a soft smile and speaks in a gentle, low voice.
+C – An outdoor guide. He leans against the railing, gazing at the ocean. His skin has that warm, sun-kissed tan. He doesn't say much—just nods at you in acknowledgment.
+D – An architect. He's been helping the crew set up chairs, quick and efficient. When it's his turn to speak, he keeps it simple, giving a straightforward introduction.
+
+
+
+点击屏幕退回，再次点击则切换到下一步：（头像消失）
+结束了第一次见面的破冰环节，节目组便告知了你们第二天的行程以及地点，
+After the icebreaker session, the production team announces the schedule and locations for the next day.
+
+点击：加入图片
+（出现一张行程单 素材文件名：Plan.jpg），默认放到右上角，点击则放大居中
+（点击行程单移动并放大到眼前，上面写着四个地点）
+
+10:30:去海岛上的手工集市做木雕或者扎染
+12:30去一家当地的朴实小饭馆体验本地菜系
+15:00去体验海上冲浪和滑翔伞
+18:00去海边可以看日落的露天清吧
+
+点击：行程单消失，出现选择
+看完行程单，你最期待的约会地点是：
+After looking over the itinerary, which date spot are you most looking forward to?
+（第一次测试选择）
+A 手工集市
+B日落请吧
+C海上冲浪
+D本地菜馆
+
+A. Artisan Market – Wood carving or batik
+B. Sunset Bar – Open-air drinks by the beach
+C. Ocean Adventure – Surfing or paragliding
+D. Local Eatery – Authentic island cuisine
+
+
+
+
+
+
+
+
+选择完之后来到第二天
+（第二天）
+（背景：海滩视频）
+（可以翻动的照片轮播效果 放4张游玩照片）每次展示一张（自动切换，也可以键盘左右键切换）
+（游玩照片素材文件名 play1.jpg play2.jpg play3.jpg play4.jpg)
+
+点击背景：
+
+（背景：夜晚海边的房间里 文件名BGsearoom.jpg）
+
+点击
+结束了一天的约会，你回到房间，躺在床上，脑海里反复的回放着今天游玩活动时的那几个瞬间，你觉得最吸引你的一个瞬间是：
+After the day's date comes to an end, you return to your room and lie down on the bed. Scenes from today's outing keep replaying in your mind. One moment stands out above the rest—which one draws you in the most?
+
+（ 一个想法气泡上面写选项）
+（四个选项）（第二次测试选择）
+A 他今天穿了一身格外亮眼的穿搭，阳光洒在他身上，像自带滤镜。做扎染的时候，他的配色和图案总有着别出心裁的设计感。你被他的才华和那股浑然天成的自信深深吸引。
+B 日落时分，你们坐在露台上。眼前的晚霞美得让人失语，你心里却莫名泛起一丝落寞。他什么都没问，只是安静地陪在你身边，看着你笑，像在说“我懂”。
+C 你第一次冲浪，摔了好几次，有点泄气。他游过来，没说什么鼓励的话，只是默默把你的冲浪板推到浪最好的位置，然后看着你说：“再来一次，我陪你。”
+D 吃完饭走在回民宿的路上，海风吹过来有点凉。他没说话，但不知什么时候走到了你迎风的那一侧。你打了个喷嚏，他从包里掏出一件外套递过来：“我多带的，别感冒了。”
+
+A. He's dressed in a particularly eye-catching outfit today—sunlight spills over him like a built-in filter. During the batik session, his color combinations and patterns have a uniquely creative flair. You find yourself drawn to his talent and that effortless confidence.
+B. As the sun sets, you sit together on the terrace. The sunset before you is almost too beautiful for words, yet a quiet melancholy rises in your chest. He doesn't ask what's wrong. He simply stays by your side, watching you with a gentle smile—as if to say, "I understand."
+C. It's your first time surfing. You wipe out several times, your frustration starting to build. He swims over. No pep talk, no empty encouragement—just quietly guides your board to where the waves are best. Then he looks at you and says, "One more try. I'm right here with you."
+D. After dinner, you're walking back to the guesthouse when a cool sea breeze sweeps in. Without a word, he shifts to the windward side, shielding you. You let out a small sneeze, and he pulls a jacket from his bag, handing it over. "Brought an extra. Don't catch a cold."
+
+
+选择完切换
+（第三天）
+（背景：海滩视频）
+录制进入第三天，节目组安排了一个“默契挑战”环节。你和约会对象需要合作完成一个任务，但过程中出现了一点分歧你们需要用有限的材料在海滩上搭建一个“避暑装置”，然而你们两个却各自有着自己的方案，这时候你会说：
+The recording enters Day 3. The production team sets up a "Chemistry Challenge." You and your date need to work together to complete a task—but along the way, a small disagreement arises. Using limited materials, you're supposed to build a "sun shelter" on the beach. The problem is, the two of you have completely different ideas on how to do it. At this moment, you say —
+
+（第三次测试选择）
+A “你听我的嘛……这次听我的，下次我听你的好不好？”（你在意对方的态度）
+B “我们能不能先说明白，为什么你觉得你的方案更好？”（你在意问题的对错）
+C “你刚才打断我了，我还没说完。”（你在意是否被尊重）
+D“算了，按你说的来吧，别浪费时间了。”（你在意矛盾是否快速翻篇）
+
+A. "Can we just go with my way this time…? Next time, I'll follow yours, okay?"
+(You care about their attitude.)
+B. "Can we take a moment to explain why you think your plan is better?"
+(You care about getting to the bottom of things.)
+C. "You just cut me off. I wasn't finished speaking."
+(You care about being respected.)
+D. "Forget it. Let's just do it your way. No point wasting time."
+(You care about smoothing things over quickly.)
+
+
+（背景：夜晚海边的房间 文件名BGsearoom.jpg）
+当天晚上，你因为认床失眠了。凌晨1点，你翻来覆去睡不着，拿起手机发现他也没睡，此时，你觉得最让你舒服的互动是？
+That night, you can't sleep—you're not used to the bed. It's 1:00 AM. You toss and turn, then pick up your phone. Turns out he's still awake too. At this moment, which kind of interaction would feel most comforting to you?
+
+（第四次测试选择）
+
+A. 对方立刻打来语音：“睡不着？我陪你聊会儿？要不要我给你讲个故事？”
+B. 对方发来一句：“我也没睡。想说话就说，不想说就挂着我陪你。”
+C. 对方没主动发消息，但你发现他分享了首助眠的歌到朋友圈，配文“适合今晚”。
+D. 对方发来一张照片：是他白天在海边捡的贝壳，摆成了一个月亮的形状。“送你的，明天给你。”
+
+A. He instantly calls you: "Can't sleep? I'll stay on the line with you. Want me to tell you a little story?"
+B. A message pops up: "I'm awake too. Talk if you feel like it. Or just stay on the call—I'm here."
+C. He doesn't message you directly, but you notice he's shared a lullaby-like track on his feed. The caption simply reads: "For tonight."
+D. A photo comes through—it's the shells he collected on the beach earlier, carefully arranged into the shape of a moon. "For you. I'll bring them tomorrow."
+
+
+
+（第四天）
+（背景 海滩视频）
+经过几天的相处，你开始观察到对方的一些习惯。某天，你发现了一些让你瞬间“下头”的细节，你觉得哪个你最不能接受？
+A few days into this, you've started picking up on his little habits. Then, one day, you notice something—a small detail that just… turns you off completely. Which one hits you the hardest?
+（第五次测试选择）
+
+A：你发现他在结账时总是很计较，连一瓶水都要算清楚，而且你随口说过的喜好，他从来没有记住过。
+B：你心情不好的时候，他完全没有察觉，还在兴致勃勃地讲自己的事。你暗示了几次，他都没反应过来。
+C：你发现他开始频繁问你在哪、和谁在一起，你说想一个人走走，他说“那我陪你吧”，你觉得有点喘不过气。
+D：你问他节目结束后有什么打算，他说“还没想过，看情况吧”，对未来完全没有规划。
+
+A. You notice he's always very particular when it comes to splitting the bill—counting every last cent, even for a bottle of water. And the little preferences you mentioned in passing? He never seems to remember them.
+B. When you're feeling down, he doesn't pick up on it at all. He just keeps enthusiastically talking about his own things. You drop a few hints, but he never catches on.
+C. You notice he's started asking where you are and who you're with a little too often. When you say you want to take a walk alone, he says, "I'll come with you." You feel yourself starting to suffocate a little.
+D. You ask him what his plans are after the show ends. He says, "Haven't really thought about it. We'll see." No direction, no plans for the future.
+
+（背景 晚上桌椅 文件名：BG4.jpg）
+晚上，节目录制过半，节目组安排了一个“真心话”环节。你被问到：你觉得两个人在一起，最大的意义是什么？
+That evening, the recording is halfway through. The production team sets up a "Truth or Dare" session. You're asked: "What do you think is the greatest meaning of two people being together?"
+
+
+（第六次测试选择）
+你的回答是：
+
+A. “一起变得更好吧。一起去更多的地方，一起成为更厉害的人。”（锦上添花）
+B. “有个人接着你吧。不管多难的时候，你知道自己不是一个人。”（雪中送炭）
+C. “两者都需要吧。能一起享受好的，也能一起扛过坏的。”（都要）
+D. “不用想那么多，相处舒服最重要。”（无所谓）
+A. "It's about becoming better together. Going to more places, growing into stronger versions of ourselves—together." 
+B. "Having someone there to catch you. No matter how hard things get, you know you're not alone."
+C. "I think both matter. Being able to enjoy the good times together, and getting through the hard times together." 
+D. "I don't overthink it. Feeling comfortable with each other—that's what really counts." 
+
+（背景：夜晚海滩 文件名：BGnight.mov）
+结束后你和他一起去海边散步，对方突然问你：“节目结束后，你对恋爱有什么打算吗？”你的回答是：
+After the session ends, you go for a walk along the beach with him. He suddenly asks, "After the show ends, what are your plans when it comes to relationships?" Your answer is —
+
+（七）
+A. “我希望两个人可以一起规划，目标一致，步调同步。”（一起畅想，制定目标）
+B. “慢慢磨合吧，找到两个人都舒服的节奏就好。”（互相迁就，找平衡点）
+C. “各自规划吧，偶尔同步一下就行。”（互不干涉，偶尔同步）
+D. “顺其自然吧，想太多反而累。”（走一步看一步）
+
+A. "I hope we can plan together—aligned goals, moving at the same pace."
+B. "Take it slow and find a rhythm that works for both of us."
+C. "We can each plan our own lives. Just check in with each other now and then."
+D. "Just go with the flow. Overthinking things just gets exhausting."
+
+
+
+（第五天）
+（背景：夜晚海边帐篷 文件名：BG5.jpg）
+节目组安排了一个“朋友探班”环节。对方的两位好朋友来到岛上，你们四个人一起吃了顿饭。
+结束后，你的感受是：
+The production team arranges a "Friends Visit" segment. Two of his close friends come to the island, and the four of you have a meal together.
+After it ends, what's your feeling?
+
+（八）
+A. 有点在意他朋友怎么看自己，想知道自己有没有被认可。（想融入，希望被认可）
+B. 还好，他简单介绍了一下就够了，不需要太深入。（在意但尊重，知道就好）
+C. 无所谓，他有他的朋友，我有我的，互不打扰挺好的。（不在意，各自有圈子）
+D. 稍微有点在意，但只要他朋友不越界，怎么玩都可以。（稍微在意，不越界就行）
+
+A. You care a little about how his friends see you—you wonder if you've been accepted.
+B. It's fine. A brief introduction is enough—no need to go too deep.
+C. It doesn't really matter. He has his friends, you have yours. It's better to not interfere.
+D. You're slightly aware of it, but as long as his friends don't cross any lines, you're fine with however things go.
+
+
+（第六天）
+（背景：海滩）
+今天是节目录制的最后一天，节目组让大家各自填写：你想象中，最舒服的恋爱日常是什么样的？
+Today is the final day of filming. The production team asks everyone to fill out a form: What does your ideal, most comfortable everyday relationship look like?
+
+
+（九）
+A. 每天都要说“我想你”，睡前一定要视频，恨不得24小时黏在一起。（热恋型）
+B. 不用很多话，但一个眼神就知道对方在想什么，彼此懂得。（灵魂伴侣型）
+C. 各自有各自的事，但需要的时候对方一定在，互相支撑但不捆绑。（搭档型）
+D. 一起买菜做饭，窝在沙发看电视，平平淡淡但很安心。（家人型）
+A. Saying "I miss you" every day, video calling before bed, wanting to be glued to each other 24/7.
+(The passionate, lovey-dovey type.)
+B. Not needing many words—just a look, and you know what the other is thinking. Two people who truly understand each other.
+(The soulmate type.)
+C. Each having their own life, but always there when needed. Supporting each other without being tied at the hip.
+(The partner-in-crime type.)
+D. Grocery shopping and cooking together, sinking into the sofa to watch TV—simple, peaceful, reassuring.
+(The family-like, homebody type.)
+
+
+
+写完后。节目组把你叫到海边，递给你一张卡片（一个框）。
+卡片上写着：
+“这十天里，让你最心动的那个人，和让你最舒服的那个人，是同一个人吗？”
+“如果‘喜欢’和‘适合’冲突了，你会怎么选？”
+After you finish writing, the production team calls you down to the beach. They hand you an envelope and a card.
+On the card, it reads:
+"Over these ten days—was the person who made your heart race the same as the one who made you feel most at ease?"
+"If 'who you like' and 'who you fit with' don't align… which do you choose?"
+
+（十）
+A. 选喜欢的。哪怕磨合很累，我不想将就。
+B. 选适合的。心动会消失，合适才能长久。
+C. 犹豫纠结。我想找到两者的平衡点。
+D. 看感觉。跟着心走，不提前设限。
+
+A. Choose who I like. Even if it takes exhausting work to make it fit, I don't want to settle.
+B. Choose who's right for me. Butterflies fade, but compatibility lasts.
+C. I'm torn. I want to find the balance between the two.
+D. Go with the feeling. Follow my heart—no need to set limits in advance.
+
+出现并且点击信封
+（背景：夜晚海边）
+（音效：海浪声，轻柔的背景音乐渐入）
+你握着那个信封，在海边站了很久。
+风吹过来，带着海水的咸味和日落的温度。
+你其实不知道该怎么选。
+又或者，你心里其实一直都有答案。
+You hold the envelope in your hands, standing by the shore for a long time.
+The wind brushes past you, carrying the salt of the sea and the warmth of the setting sun.
+You're not sure how to choose.
+Or maybe—deep down—you've always known the answer.
+
+
+（打开信封 信封素材文件：envelope.PNG）
+（点击 出现一张信纸 信纸：END.JPG）
+亲爱的体验官：
+感谢你陪我们度过了这五天。
+在离开之前，我们想和你分享一些关于你的“小发现”——
+这些天里，你在不同的选择中，一点点暴露了自己内心最真实的样子。
+
+ABCD四种结局
+根据玩家前面十道题中选择较多的那个选项触发对应结局
+比如选A多就触发A结局
+.....
+（打开信封 信封素材文件：envelope.PNG）
+（点击 出现一张信纸 信纸：END.JPG）
+亲爱的体验官：
+感谢你陪我们度过了这五天。
+在离开之前，我们想和你分享一些关于你的“小发现”——
+这些天里，你在不同的选择中，一点点暴露了自己内心最真实的样子。
+（每一个开头和结尾都是一样的 就是中间的文字不一样）
+
+A结局：
+你天生对“亮眼的人”毫无抵抗力，容易被颜值、穿搭、有趣的性格吸引，喜欢浪漫、仪式感和新鲜感，恋爱中追求“被瞩目、被宠溺”的感觉。
+最适合你的不是同类型的“新鲜感选手”，而是踏实靠谱型——他能包容你的多变，给你安稳的后盾，让你在浪漫之余，有落地的温暖。
+
+B结局：
+你渴望“灵魂相通”的爱情，容易被温柔、细腻、懂你的人吸引，恋爱中最看重情绪价值，希望对方能接住你的所有委屈和小情绪，注重深度交流。
+最适合你的是同类型的温柔共情型人或踏实靠谱型人——同频的人能懂你的细腻，稳定的人能在你敏感时给你定心丸，避免互相内耗。
+
+C结局：
+你讨厌被束缚，容易被独立、有主见、不粘人的人吸引，恋爱中最看重“边界感”，希望彼此有自己的空间，不被感情绑架，追求“势均力敌”的相处。
+最适合你的是同类型的独立洒脱型人或温柔共情型——独立的人能尊重你的节奏，共情的人能在你孤独时，悄悄走进你的世界不打扰。
+
+D结局：
+你对爱情的期待很简单，容易被踏实、靠谱、情绪稳定的人吸引，不喜欢折腾，恋爱中追求“舒服、平淡、接地气”，注重实际的陪伴和责任。
+最适合你的是同类型的踏实靠谱型人或 独立洒脱型——安稳的人能和你共度柴米油盐，独立的人能给平淡的生活添一点新鲜感，不枯燥。
+
+下一次心动，会发生在哪里呢？愿你，带着答案继续走下去。
+
+
+
+Dear Experience Tester:
+
+Thank you for spending these five days with us.
+
+Before you leave, we'd like to share a few "little discoveries" about you —
+
+Over these days, through the different choices you made, you've quietly revealed the truest parts of your heart.
+
+
+Ending A:
+
+You're naturally drawn to people who stand out — appearances, style, an interesting personality. You're attracted to romance, a sense of occasion, and the thrill of something new. In love, you seek that feeling of being seen and cherished.
+
+What suits you best isn't someone of the same "chasing novelty" type, but someone steady and reliable. They can embrace your ever-changing moods and provide a secure foundation, letting you enjoy the romance while still having something solid to come back to.
+
+
+Ending B:
+
+You long for a love that feels like two souls intertwined. You're drawn to those who are gentle, thoughtful, and truly understand you. In a relationship, emotional connection matters most — you want someone who can hold space for all your quiet hurts and small frustrations, someone who values deep, meaningful conversations.
+
+What suits you best is either a kindred spirit who connects on that emotional frequency, or someone grounded and emotionally steady. The kindred spirit will always understand your subtleties; the steady one will offer a sense of calm when you're feeling vulnerable, helping you both avoid unnecessary friction.
+
+
+Ending C:
+
+You hate feeling trapped. You're drawn to people who are independent, strong-willed, and not overly clingy. In love, you value clear boundaries — you want each person to have their own space, without feeling consumed by the relationship. You're looking for a partnership of equals.
+
+What suits you best is either someone equally independent, or someone gentle and empathetic. The independent type will respect your rhythm; the empathetic type will quietly step into your world when you're feeling alone — without disturbing your peace.
+
+
+Ending D:
+
+Your expectations for love are simple. You're drawn to people who are steady, reliable, and emotionally grounded. You don't like drama — in love, you're looking for something comfortable, down-to-earth, and genuine. What matters most to you is tangible presence and a sense of responsibility.
+
+What suits you best is either someone equally grounded and reliable, or someone independent and free-spirited. The grounded one will walk with you through the routines of everyday life; the independent one will bring just the right amount of freshness to your days, keeping things from ever feeling dull.
+
+（结尾都是一样的这句话）
+Where will your next heartbeat take you?
+May you carry your answer with you, and keep going.
+
+
+
+点击，黑屏回到最开始
