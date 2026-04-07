@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Learning Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-purple: #2a1a3d;
+            --mystic-gold: #d4af37;
+            --soft-cream: #faf8f3;
+            --shadow-plum: #4a3456;
+            --accent-rose: #e6c9d4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--shadow-plum) 100%);
+            color: var(--soft-cream);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(230, 201, 212, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--mystic-gold);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-rose);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .card {
+            aspect-ratio: 2/3;
+            background: linear-gradient(145deg, rgba(250, 248, 243, 0.95), rgba(230, 201, 212, 0.9));
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-inner {
+            padding: 1.5rem 1rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .card-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            color: var(--deep-purple);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 26, 61, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, var(--soft-cream), var(--accent-rose));
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal-header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--mystic-gold);
+        }
+
+        .modal-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .modal-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--deep-purple);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            color: var(--deep-purple);
+        }
+
+        .meaning-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .meaning-label {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--shadow-plum);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .meaning-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--deep-purple);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--deep-purple);
+            color: var(--mystic-gold);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn:hover {
+            background: var(--mystic-gold);
+            color: var(--deep-purple);
+            transform: rotate(90deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+                gap: 1rem;
+            }
+
+            .modal-content {
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tarot</h1>
+            <p class="subtitle">Journey Through the Arcana</p>
+        </header>
+
+        <div class="cards-grid" id="cardsGrid"></div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <div class="modal-header">
+                <div class="modal-icon" id="modalIcon"></div>
+                <h2 class="modal-title" id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="meaning-section">
+                    <div class="meaning-label">Upright Meaning</div>
+                    <p class="meaning-text" id="uprightMeaning"></p>
+                </div>
+                <div class="meaning-section">
+                    <div class="meaning-label">Reversed Meaning</div>
+                    <p class="meaning-text" id="reversedMeaning"></p>
+                </div>
+                <div class="meaning-section">
+                    <div class="meaning-label">Keywords</div>
+                    <p class="meaning-text" id="keywords"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tarotCards = [
+            {
+                name: "The Fool",
+                icon: "🃏",
+                upright: "New beginnings, innocence, spontaneity, free spirit. The Fool represents a fresh start and unlimited potential. Step forward with optimism and trust in the journey ahead.",
+                reversed: "Recklessness, negligence, naivety, poor judgment. When reversed, The Fool warns against impulsive decisions without considering consequences.",
+                keywords: "Beginnings, Adventure, Innocence, Freedom, Potential"
+            },
+            {
+                name: "The Magician",
+                icon: "🎩",
+                upright: "Manifestation, resourcefulness, power, inspired action. The Magician shows you have all the tools needed to achieve your goals. Channel your will with focus and determination.",
+                reversed: "Manipulation, untapped talents, illusion, lack of energy. Reversed suggests scattered focus or misuse of skills and abilities.",
+                keywords: "Manifestation, Power, Skills, Resources, Action"
+            },
+            {
+                name: "The High Priestess",
+                icon: "🌙",
+                upright: "Intuition, sacred knowledge, divine feminine, subconscious mind. Trust your inner voice and explore deeper spiritual understanding. Mysteries are revealed through introspection.",
+                reversed: "Secrets, disconnection from intuition, withdrawal, silence. When reversed, you may be ignoring your intuition or keeping harmful secrets.",
+                keywords: "Intuition, Mystery, Spirituality, Inner Voice, Wisdom"
+            },
+            {
+                name: "The Empress",
+                icon: "👑",
+                upright: "Femininity, beauty, nature, nurturing, abundance. The Empress represents creation, fertility, and connection to Mother Earth. Embrace sensory experiences and creative expression.",
+                reversed: "Creative block, dependence, smothering, neglect. Reversed may indicate creative stagnation or codependent relationships.",
+                keywords: "Abundance, Nurturing, Fertility, Nature, Creativity"
+            },
+            {
+                name: "The Emperor",
+                icon: "⚔️",
+                upright: "Authority, structure, control, fatherly figure, stability. The Emperor brings order through discipline and leadership. Establish rules and boundaries for success.",
+                reversed: "Domination, excessive control, rigidity, inflexibility. When reversed, beware of tyrannical behavior or lack of discipline.",
+                keywords: "Authority, Structure, Control, Stability, Leadership"
+            },
+            {
+                name: "The Hierophant",
+                icon: "📿",
+                upright: "Spiritual wisdom, tradition, institutions, conformity. The Hierophant represents learning from established systems and seeking spiritual guidance from traditional sources.",
+                reversed: "Personal beliefs, freedom, challenging tradition, unconventional. Reversed encourages breaking from convention and following your own spiritual path.",
+                keywords: "Tradition, Spirituality, Education, Conformity, Beliefs"
+            },
+            {
+                name: "The Lovers",
+                icon: "💕",
+                upright: "Love, harmony, relationships, values alignment, choices. The Lovers represent union, partnership, and important decisions based on values and beliefs.",
+                reversed: "Disharmony, imbalance, misalignment of values, conflict. When reversed, suggests relationship struggles or difficult choices ahead.",
+                keywords: "Love, Union, Choices, Relationships, Values"
+            },
+            {
+                name: "The Chariot",
+                icon: "🏇",
+                upright: "Control, willpower, success, determination, action. The Chariot represents triumph through focus and discipline. Harness opposing forces to move forward victoriously.",
+                reversed: "Lack of control, opposition, lack of direction, aggression. Reversed warns of losing control or facing obstacles that derail progress.",
+                keywords: "Willpower, Victory, Determination, Control, Success"
+            },
+            {
+                name: "Strength",
+                icon: "🦁",
+                upright: "Courage, persuasion, influence, compassion, inner strength. Strength represents power through gentle control and emotional resilience. Face challenges with grace and patience.",
+                reversed: "Self-doubt, weakness, insecurity, lack of confidence. When reversed, you may be struggling with self-esteem or raw emotion.",
+                keywords: "Courage, Inner Strength, Compassion, Patience, Confidence"
+            },
+            {
+                name: "The Hermit",
+                icon: "🏮",
+                upright: "Soul-searching, introspection, inner guidance, solitude. The Hermit encourages withdrawal to find answers within. Seek your inner light through quiet contemplation.",
+                reversed: "Isolation, loneliness, withdrawal, paranoia. Reversed suggests excessive isolation or refusing guidance from others.",
+                keywords: "Introspection, Solitude, Wisdom, Guidance, Soul-searching"
+            },
+            {
+                name: "Wheel of Fortune",
+                icon: "☸️",
+                upright: "Good luck, karma, life cycles, destiny, turning point. The Wheel represents the ever-changing nature of life. Accept that change is constant and inevitable.",
+                reversed: "Bad luck, resistance to change, breaking cycles. When reversed, you may be experiencing a downward turn or resisting necessary change.",
+                keywords: "Destiny, Change, Cycles, Luck, Fate"
+            },
+            {
+                name: "Justice",
+                icon: "⚖️",
+                upright: "Justice, fairness, truth, cause and effect, law. Justice represents balanced decisions and karmic consequences. Truth and integrity will prevail.",
+                reversed: "Unfairness, lack of accountability, dishonesty. Reversed indicates injustice, biased judgment, or avoiding responsibility.",
+                keywords: "Justice, Truth, Fairness, Law, Accountability"
+            },
+            {
+                name: "The Hanged Man",
+                icon: "🙃",
+                upright: "Pause, surrender, letting go, new perspectives. The Hanged Man represents willing sacrifice and seeing things from a different angle. Sometimes inaction is the best action.",
+                reversed: "Delays, resistance, stalling, indecision. When reversed, you may be struggling to let go or refusing to see other viewpoints.",
+                keywords: "Surrender, New Perspective, Pause, Sacrifice, Wisdom"
+            },
+            {
+                name: "Death",
+                icon: "💀",
+                upright: "Endings, change, transformation, transition. Death represents necessary endings that make way for new beginnings. Embrace transformation and release what no longer serves you.",
+                reversed: "Resistance to change, fear of change, stagnation. Reversed suggests clinging to the past or fearing necessary transitions.",
+                keywords: "Transformation, Endings, Change, Transition, Release"
+            },
+            {
+                name: "Temperance",
+                icon: "🍶",
+                upright: "Balance, moderation, patience, purpose, meaning. Temperance represents finding middle ground and harmonious blending. Take a balanced, moderate approach.",
+                reversed: "Imbalance, excess, lack of long-term vision. When reversed, you may be experiencing extremes or struggling to find equilibrium.",
+                keywords: "Balance, Moderation, Patience, Harmony, Purpose"
+            },
+            {
+                name: "The Devil",
+                icon: "😈",
+                upright: "Shadow self, attachment, addiction, restriction, sexuality. The Devil represents bondage to material desires and unhealthy attachments. Recognize what enslaves you.",
+                reversed: "Releasing limiting beliefs, detachment, independence. Reversed suggests breaking free from addictions or toxic patterns.",
+                keywords: "Bondage, Addiction, Materialism, Temptation, Restriction"
+            },
+            {
+                name: "The Tower",
+                icon: "🗼",
+                upright: "Sudden change, upheaval, chaos, revelation, awakening. The Tower represents dramatic transformation through destruction. Old structures must fall for rebuilding to begin.",
+                reversed: "Personal transformation, fear of change, averting disaster. When reversed, you may avoid necessary change or experience internal upheaval.",
+                keywords: "Upheaval, Revelation, Change, Chaos, Awakening"
+            },
+            {
+                name: "The Star",
+                icon: "⭐",
+                upright: "Hope, faith, purpose, renewal, spirituality. The Star brings renewed faith and inspiration after darkness. Trust in the universe and your path forward.",
+                reversed: "Lack of faith, despair, disconnection, discouragement. Reversed suggests losing hope or feeling disconnected from spiritual guidance.",
+                keywords: "Hope, Faith, Inspiration, Renewal, Spirituality"
+            },
+            {
+                name: "The Moon",
+                icon: "🌕",
+                upright: "Illusion, fear, anxiety, subconscious, intuition. The Moon represents the realm of dreams and unconscious fears. Not everything is as it seems.",
+                reversed: "Release of fear, repressed emotion, inner confusion. When reversed, clarity emerges or you confront hidden fears.",
+                keywords: "Illusion, Intuition, Dreams, Fear, Subconscious"
+            },
+            {
+                name: "The Sun",
+                icon: "☀️",
+                upright: "Positivity, fun, warmth, success, vitality, joy. The Sun brings radiant positive energy and success. Celebrate life and let your inner light shine.",
+                reversed: "Inner child, overly optimistic, sadness. Reversed may indicate temporary clouds blocking your light or false optimism.",
+                keywords: "Joy, Success, Vitality, Positivity, Celebration"
+            },
+            {
+                name: "Judgement",
+                icon: "📯",
+                upright: "Judgement, rebirth, inner calling, absolution. Judgement represents reflection, self-evaluation, and answering a higher calling. Seek redemption and renewal.",
+                reversed: "Self-doubt, inner critic, ignoring the call. When reversed, you may be too harsh on yourself or ignoring important life decisions.",
+                keywords: "Reflection, Rebirth, Calling, Evaluation, Absolution"
+            },
+            {
+                name: "The World",
+                icon: "🌍",
+                upright: "Completion, accomplishment, travel, fulfillment. The World represents the end of a cycle and achievement of goals. Celebrate your success and prepare for new adventures.",
+                reversed: "Seeking closure, incomplete, lack of closure. Reversed suggests unfinished business or not quite reaching your destination.",
+                keywords: "Completion, Achievement, Wholeness, Travel, Success"
+            }
+        ];
+
+        function renderCards() {
+            const grid = document.getElementById('cardsGrid');
+            tarotCards.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'card';
+                cardElement.style.animationDelay = `${index * 0.05}s`;
+                cardElement.onclick = () => openModal(card);
+
+                cardElement.innerHTML = `
+                    <div class="card-inner">
+                        <div class="card-icon">${card.icon}</div>
+                        <div class="card-name">${card.name}</div>
+                    </div>
+                `;
+
+                grid.appendChild(cardElement);
+            });
+        }
+
+        function openModal(card) {
+            document.getElementById('modalIcon').textContent = card.icon;
+            document.getElementById('modalTitle').textContent = card.name;
+            document.getElementById('uprightMeaning').textContent = card.upright;
+            document.getElementById('reversedMeaning').textContent = card.reversed;
+            document.getElementById('keywords').textContent = card.keywords;
+
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        renderCards();
+    </script>
+</body>
+</html>
