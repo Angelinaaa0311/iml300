@@ -74,6 +74,27 @@
             font-weight: 300;
         }
 
+        .random-btn {
+            margin-top: 1.5rem;
+            padding: 12px 32px;
+            font-family: 'Cinzel', serif;
+            background: var(--mystic-gold);
+            color: var(--deep-purple);
+            border: none;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .random-btn:hover {
+            transform: scale(1.05);
+            background: #e6c420;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -298,6 +319,7 @@
         <header>
             <h1>Tarot</h1>
             <p class="subtitle">Journey Through the Arcana</p>
+            <button class="random-btn" id="randomBtn">🎲 Today's fortune · Random card draw</button>
         </header>
 
         <div class="cards-grid" id="cardsGrid"></div>
@@ -487,6 +509,7 @@
 
         function renderCards() {
             const grid = document.getElementById('cardsGrid');
+            grid.innerHTML = '';
             tarotCards.forEach((card, index) => {
                 const cardElement = document.createElement('div');
                 cardElement.className = 'card';
@@ -520,6 +543,13 @@
             document.body.style.overflow = 'auto';
         }
 
+
+        function drawRandomCard() {
+            const randomIndex = Math.floor(Math.random() * tarotCards.length);
+            const randomCard = tarotCards[randomIndex];
+            openModal(randomCard);
+        }
+
         // Close modal when clicking outside
         document.getElementById('modal').addEventListener('click', (e) => {
             if (e.target.id === 'modal') {
@@ -533,6 +563,9 @@
                 closeModal();
             }
         });
+
+
+        document.getElementById('randomBtn').addEventListener('click', drawRandomCard);
 
         // Initialize
         renderCards();
