@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zodiac Sign Input</title>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="bubble-canvas"></canvas>
+    <div class="container">
+      <h1 class="title">✨ What zodiac sign are you? ✨</h1>
+      <form id="text-input-form" onsubmit="return false">
+        <input type="text" id="text-input-entry" placeholder="e.g. Scorpio, Pisces..." />
+        <input
+          type="submit"
+          id="text-input-submit"
+          onclick="submitlock()"
+          value="Share"
+        />
+      </form>
+    </div>
+  </body>
+</html>
