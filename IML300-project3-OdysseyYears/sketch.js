@@ -17,7 +17,6 @@ function preload() {
   bgImg = loadImage('imgs/BG-2.jpeg');
   fogImg = loadImage('imgs/BG-1.jpeg');
 
-  // --- 【关键改动】：后缀改为 .png ---
   for (let i = 1; i <= 5; i++) {
     umbrellaImages.push(loadImage(`imgs/U${i}.png`));
   }
@@ -28,8 +27,21 @@ function setup() {
   textFont("'Share Tech', sans-serif");
   calculateLongImage();
 
+  // --- 【关键逻辑：检测返回状态】 ---
+  // 使用 p5.js 内置函数获取 URL 参数
+  let params = getURLParams();
+  if (params.from === 'subpage') {
+    isCleared = true;      // 雾气已清除
+    fogAlpha = 0;         // 雾气透明度为0
+    showFinalMenu = true;  // 直接显示雨伞菜单
+    scrollY = maxScroll;   // 背景位置滚动到最底部
+  }
+
   fogLayer = createGraphics(windowWidth, windowHeight);
-  fogLayer.image(fogImg, bgProps.x, bgProps.y, bgProps.w, bgProps.h);
+  // 如果已经直接进入菜单，雾气层初始化为透明，否则正常绘制
+  if (!isCleared) {
+    fogLayer.image(fogImg, bgProps.x, bgProps.y, bgProps.w, bgProps.h);
+  }
 
   for (let i = 0; i < 80; i++) {
     drops.push(new Drop());
@@ -43,6 +55,11 @@ function setup() {
     { img: umbrellaImages[3], x: width * 0.45, y: height * 0.80, url: 'page-4.html', size: 250, alpha: 0 },
     { img: umbrellaImages[4], x: width * 0.78, y: height * 0.60, url: 'page-5.html', size: 360, alpha: 0 }
   ];
+
+  // 如果是返回首页，让雨伞的渐显动画稍微快一点
+  if (showFinalMenu) {
+    for (let u of menuUmbrellas) u.alpha = 0;
+  }
 }
 
 function draw() {
@@ -67,7 +84,7 @@ function draw() {
     if (fogAlpha > 0) fogAlpha -= 3;
   }
 
-  // 3. 下雨逻辑（菜单页保留）
+  // 3. 下雨逻辑
   if (isCleared) {
     for (let i = 0; i < drops.length; i++) {
       drops[i].fall();
@@ -105,9 +122,8 @@ function drawUmbrellaPlugin() {
     let idx = appearanceOrder[i];
     let u = menuUmbrellas[idx];
 
-    // 依次渐显
     let prevAlpha = (i === 0) ? 255 : menuUmbrellas[appearanceOrder[i-1]].alpha;
-    if (prevAlpha > 150 && u.alpha < 255) u.alpha += 5;
+    if (prevAlpha > 150 && u.alpha < 255) u.alpha += 10; // 返回时加快一点速度
 
     if (u.alpha > 0) {
       let d = dist(mouseX, mouseY, u.x, u.y);
@@ -115,7 +131,7 @@ function drawUmbrellaPlugin() {
       if (d < u.size/2) isHover = true;
 
       push();
-      tint(255, u.alpha); // PNG 透明度处理
+      tint(255, u.alpha);
       image(u.img, u.x, u.y, s, s);
       pop();
     }
@@ -126,10 +142,6 @@ function drawUmbrellaPlugin() {
   fill(255); textAlign(CENTER); textSize(22);
   text("Choose your umbrella to continue...", width/2, 100);
 }
-
-// ======================================================
-// 后面所有函数（文字物理、滚动逻辑、雨滴类）均保持原样不动
-// ======================================================
 
 function interactiveText(txt, x, y, lineID) {
   let chars = txt.split('');
@@ -179,7 +191,6 @@ function drawScrollText(fadeProgress) {
     return alpha * fadeProgress;
   }
 
-  // 1-7 段落文字逻辑（保留原稿内容）
   let t1Alpha = getAlpha(0, 0, 0.05, 0.12);
   if (t1Alpha > 0) { fill(255, 255, 255, t1Alpha); textSize(70); interactiveText("The Odyssey Years", width / 2, height / 2 - 40, "t1"); textSize(24); interactiveText("The Prolonged Rainy Season of Life", width / 2, height / 2 + 45, "t2"); textSize(14); text("↓ Scroll Down ↓", width / 2, height - 100); }
   let p1Alpha = getAlpha(0.12, 0.18, 0.24, 0.30);
@@ -269,23 +280,19 @@ function windowResized() {
   }
 }
 
-// --- 极简 About 逻辑 ---
+// 关于按钮逻辑
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('about-btn');
   const overlay = document.getElementById('about-overlay');
-
-  // 悬停变亮效果
-  btn.addEventListener('mouseenter', () => btn.style.color = '#fff');
-  btn.addEventListener('mouseleave', () => btn.style.color = 'rgba(255,255,255,0.7)');
-
-  // 点击 About 打开
-  btn.addEventListener('click', (e) => {
-    overlay.style.display = 'flex';
-    e.stopPropagation();
-  });
-
-  // 点击全屏任意位置关闭
-  overlay.addEventListener('click', () => {
-    overlay.style.display = 'none';
-  });
+  if(btn && overlay) {
+    btn.addEventListener('mouseenter', () => btn.style.color = '#fff');
+    btn.addEventListener('mouseleave', () => btn.style.color = 'rgba(255,255,255,0.7)');
+    btn.addEventListener('click', (e) => {
+      overlay.style.display = 'flex';
+      e.stopPropagation();
+    });
+    overlay.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+  }
 });

@@ -1,9 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <meta charset="UTF-8">
+  <title>The Odyssey Years - Page 1</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 统一的返回按钮样式 */
+    .back-nav {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      z-index: 9999;
+      font-family: 'Share Tech', sans-serif;
+    }
+    .back-nav a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 8px 15px;
+      transition: all 0.3s ease;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .back-nav a:hover {
+      color: #fff;
+      border-color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
 </head>
 <body>
-    <script src="page1_sketch.js"></script>
+
+  <nav class="back-nav">
+    <a href="index.html?from=subpage">← BACK</a>
+  </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+  <script src="page1_sketch.js"></script>
+
 </body>
 </html>

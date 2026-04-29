@@ -10,3 +10,13 @@ html, body {
 canvas {
   display: block; /* 消除 canvas 默认的底部留白 */
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+}
