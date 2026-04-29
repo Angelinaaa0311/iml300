@@ -30,11 +30,7 @@ let iconConfig = [
 
 // ===== 对话 =====
 let messages = [
-  "今天也要好好休息～",
-  "外面的世界很吵",
-  "我想再躺一会儿",
-  "你在看我吗？",
-  "这里很安全"
+  "Hi～",
 ];
 
 let currentMessage = "";
