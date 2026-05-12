@@ -4,81 +4,748 @@
     <meta charset="UTF-8" />
     <title>Angelina's Homepage</title>
     <!--Update with your name-->
+    
+    <!-- Google Fonts - Bitcount Grid Double Ink + Bitcount Prop Single -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&family=Bitcount+Prop+Single:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+      body {
+        background-color: #ffdeeb;
+        margin: 0;
+        padding: 0;
+        font-family: "Bitcount Prop Single", system-ui, monospace;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+        color: #a64d79;
+      }
+
+      /* 星星容器 */
+      #stars-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .star {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        animation: starTwinkle 5s ease-in-out forwards;
+      }
+
+      .star img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      @keyframes starTwinkle {
+        0% {
+          opacity: 0;
+          transform: scale(0.3);
+        }
+        25% {
+          opacity: 0.8;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        75% {
+          opacity: 0.6;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.3);
+        }
+      }
+
+      /* ===== 顶部边框 ===== */
+      .top-border {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 140px;
+        background-color: #fcc2d7;
+        z-index: 10;
+      }
+
+      .characters {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 25px;
+      }
+
+      .character-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        pointer-events: auto;
+      }
+
+      .character-group:hover {
+        transform: translateY(-8px);
+      }
+
+      .character-group:active {
+        transform: translateY(-3px) scale(0.95);
+      }
+
+      .character-img {
+        height: 70px;
+        width: auto;
+        display: block;
+      }
+
+      .character-img img {
+        height: 100%;
+        width: auto;
+        display: block;
+        pointer-events: none;
+      }
+
+      .character-label {
+        font-size: 11px;
+        color: #a64d79;
+        margin-top: 4px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 0.5px;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+
+      /* ===== 主要内容区域 ===== */
+      .content-wrapper {
+        position: relative;
+        z-index: 1;
+        padding: 170px 20px 20px 20px;
+        text-align: center;
+      }
+
+      /* ===== 所有 h1 标题 - Bitcount Grid Double Ink ===== */
+      h1 {
+        font-family: "Bitcount Grid Double Ink", monospace;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        font-variation-settings:
+          "slnt" 0,
+          "CRSV" 0.5,
+          "ELSH" 0,
+          "ELXP" 0,
+          "SZP1" 0,
+          "SZP2" 0,
+          "XPN1" 0,
+          "XPN2" 0,
+          "YPN1" 0,
+          "YPN2" 0;
+        color: #faa2c1;
+      }
+
+      /* 主标题 */
+      .main-title {
+        font-size: 80px;
+        color: #faa2c1;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+      }
+
+      /* 其他 h1 大小 */
+      h1 {
+        font-size: 50px;
+        margin-top: 40px;
+      }
+
+      /* h2 也使用标题字体 */
+      h2, h3 {
+        font-family: "Bitcount Grid Double Ink", monospace;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings:
+          "slnt" 0,
+          "CRSV" 0.5,
+          "ELSH" 0,
+          "ELXP" 0,
+          "SZP1" 0,
+          "SZP2" 0,
+          "XPN1" 0,
+          "XPN2" 0,
+          "YPN1" 0,
+          "YPN2" 0;
+        color: #a64d79;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      h3 {
+        font-size: 18px;
+      }
+
+      /* 链接 */
+      a {
+        font-family: "Bitcount Prop Single", monospace;
+        color: #a64d79;
+        text-decoration: none;
+        border-bottom: 1.5px dashed #a64d79;
+        padding-bottom: 2px;
+        font-size: 16px;
+      }
+
+      a:hover {
+        color: #c47b9a;
+        border-bottom-color: #c47b9a;
+      }
+
+      /* ===== Exercises 网格布局 ===== */
+      .exercises-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        max-width: 1300px;
+        margin: 20px auto;
+        padding: 0 10px;
+      }
+
+      .exercise-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        padding: 15px;
+        border: 2px solid #fcc2d7;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .exercise-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(252, 194, 215, 0.4);
+      }
+
+      .exercise-item iframe {
+        width: 100%;
+        height: 300px;
+        border-radius: 10px;
+        border: 2px solid #fcc2d7;
+        margin-bottom: 10px;
+      }
+
+      .exercise-item a {
+        margin-top: 5px;
+      }
+
+      /* ===== Vibe Coding 部分 ===== */
+      .vibe-intro {
+        max-width: 800px;
+        margin: 0 auto 30px auto;
+        text-align: center;
+        line-height: 1.7;
+        font-size: 17px;
+      }
+
+      .vibe-intro p {
+        margin-bottom: 15px;
+      }
+
+      .vibe-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 25px;
+        max-width: 900px;
+        margin: 0 auto 25px auto;
+        text-align: left;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 15px;
+        padding: 20px 25px;
+        border: 2px solid #fcc2d7;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .vibe-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 18px rgba(252, 194, 215, 0.35);
+      }
+
+      .vibe-link {
+        flex-shrink: 0;
+        width: 200px;
+        text-align: left;
+      }
+
+      .vibe-link a {
+        font-size: 18px;
+        font-weight: 600;
+        border-bottom: 1.5px dashed #a64d79;
+      }
+
+      .vibe-description {
+        flex: 1;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #a64d79;
+      }
+
+      /* ===== Thoughts 部分 ===== */
+      .thoughts-text {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left;
+        line-height: 1.8;
+        font-size: 17px;
+      }
+
+      .thoughts-text p {
+        margin-bottom: 20px;
+        text-align: left;
+        max-width: 100%;
+      }
+
+      /* 响应式 */
+      @media (max-width: 900px) {
+        .exercises-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 700px) {
+        .vibe-item {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .vibe-link {
+          width: 100%;
+        }
+        .thoughts-text {
+          text-align: center;
+        }
+        .thoughts-text p {
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .exercises-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* 段落 */
+      p {
+        font-family: "Bitcount Prop Single", monospace;
+        color: #a64d79;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+        font-size: 20px;
+      }
+
+      div[style*="font-size: 13px"] p {
+        font-family: "Bitcount Prop Single", monospace;
+        color: #a64d79;
+      }
+
+      /* ===== 项目展示图片样式 ===== */
+      .project-image {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+        width: 600px;
+        height: auto;
+        border-radius: 15px;
+        border: 3px solid #fcc2d7;
+        box-shadow: 0 4px 15px rgba(252, 194, 215, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-image:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 20px rgba(252, 194, 215, 0.5);
+      }
+
+      /* footer */
+      footer {
+        font-family: "Bitcount Prop Single", monospace;
+        margin-top: 40px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
 
   <body>
-    <div>
-      <h1>Angelina</h1>
-      <!--Update with your name-->
-      <p>
-        This is my website for <i>IML300 class</i>. Write a little bit about
-        yourself.
-      </p>
+    <!-- 星星容器 -->
+    <div id="stars-container"></div>
+
+    <!-- 顶部边框 -->
+    <div class="top-border">
+      <div class="characters">
+        <div class="character-group" onclick="scrollToSection('presentation')" title="Presentation">
+          <div class="character-img">
+            <img src="img/C1.PNG" alt="Presentation">
+          </div>
+          <span class="character-label">Presentation</span>
+        </div>
+        
+        <div class="character-group" onclick="scrollToSection('projects')" title="Projects">
+          <div class="character-img">
+            <img src="img/C2.PNG" alt="Projects">
+          </div>
+          <span class="character-label">Projects</span>
+        </div>
+        
+        <div class="character-group" onclick="scrollToSection('exercises')" title="Exercises">
+          <div class="character-img">
+            <img src="img/C3.PNG" alt="Exercises">
+          </div>
+          <span class="character-label">Exercises</span>
+        </div>
+        
+        <div class="character-group" onclick="scrollToSection('vibe-coding')" title="Vibe Coding">
+          <div class="character-img">
+            <img src="img/C4.PNG" alt="Vibe Coding">
+          </div>
+          <span class="character-label">Vibe Coding</span>
+        </div>
+        
+        <div class="character-group" onclick="scrollToSection('thoughts')" title="Thoughts">
+          <div class="character-img">
+            <img src="img/C5.PNG" alt="Thoughts">
+          </div>
+          <span class="character-label">Thoughts</span>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <h1>Presentation</h1>
-      <a href="https://www.canva.com/design/DAHDk5CHEyI/39Dk3Wzc4TlF6ush5DTjiA/edit?utm_content=DAHDk5CHEyI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Pecha Kucha: Lorem Ipsum</a>
+    <!-- 主要内容 -->
+    <div class="content-wrapper">
+      <div>
+        <h1 class="main-title">Welcome to Angee's channel!!</h1>
+        <p>
+          Hiii, I'm Angelina Sun.
+        </p>
+        <p>
+          This is my cute website for <i>IML300 class</i>. 
+        </p>
+        <p>
+          This is my first time learning coding. Even though it often stressed me out as a total beginner, the whole process of leaning and improving little by little has been absolotely amazing 
+        </p>
+        <p>
+          I hope I can keep exploring in this field and create more wonderful works in the future. I'm looking forward to seeing my own progress! 
+        </p>
+      </div>
+
+      <div id="presentation">
+        <h1>Presentation</h1>
+        <iframe 
+          src="https://www.canva.com/design/DAHDk5CHEyI/39Dk3Wzc4TlF6ush5DTjiA/view?embed" 
+          width="800" 
+          height="600" 
+          frameborder="0" 
+          allowfullscreen
+          style="display: block; margin: 20px auto; max-width: 100%; border: 3px solid #fcc2d7; border-radius: 15px;">
+        </iframe>
+      </div>
+
+      <div id="projects">
+        <h1>Projects</h1>
+        
+        <!-- Project 1 -->
+        <h2>Project 1: Interactive Audio & Visual with p5.js</h2>
+        <div style="font-size: 13px;">
+    <p>I have always believed that sound,
+      or rather music, can preserve memories.
+      Whenever I revisit tunes I heard during a particular period,
+      they invariably evoke the sensations and emotions of that time.
+      That is why I created this project. It is a book, my personal diary,
+      chronicling the twelve months of 2025. 2025 holds
+      profound significance for me—it marked my most crucial
+      application season, my 18th birthday coming-of-age ceremony,
+      and my first solo journey abroad for studies.
+      Thus, I selected the most representative photographs
+      and a song capable of evoking memories for each month.
+      We can interactively explore each page. May the code
+      grant my happiness eternal preservation.</p>
+  </div>
+        <img src="img/project1.PNG" alt="My 2025 memoir 项目展示" class="project-image">
+        <a href="https://editor.p5js.org/Angelinaaa0311/sketches/Rn2HWifjM" target="_blank">My 2025 memoir</a>
+        
+        <!-- Project 2 -->
+        <h2>Project 2: HyperNarrative</h2>
+        <div style="font-size: 13px;">
+    <p>This project is a small interactive website inspired by story-based games.
+      Players take on the role of the main character joining
+      a fictional dating show, and make different choices throughout several days
+      of the show.  Based on all the decisions they make,
+      the website will show their personality type in relationships,
+      who they are most compatible with, and what kind of person
+      they are in love.  I made this project because I want to create
+      something fun and relaxing, while also letting people learn
+      a little more about themselves through a lighthearted game.</p>
+  </div>
+        <img src="img/project2.PNG" alt="Crush Island 项目展示" class="project-image">
+        <a href="https://angelinaaa0311.github.io/iml300/IML300-project2-CrushIsland/" target="_blank">Crush Island</a>
+        
+        <!-- Project 3 -->
+        <h2>Project 3: Networked Care</h2>
+        <div style="font-size: 13px;">
+    <p>This is a warm interactive web platform 
+      for young people in the Odyssey Years, a confusing 
+      transitional life stage full of anxiety and loneliness. 
+      With "life's rainy season" as its visual theme, 
+      the homepage features a gentle rain animation and 
+      five interactive umbrellas leading to five healing modules:
+      a white noise relax room, a growing tree companion, 
+      a random gift box, a self-exploration quiz, 
+      and a Firebase-powered message board.
+      It aims to accompany users through confused days 
+      and build a warm networked care space.</p>
+  </div>
+        <img src="img/project3.PNG" alt="Odyssey Years 项目展示" class="project-image">
+        <a href="https://angelinaaa0311.github.io/iml300/IML300-project3-OdysseyYears/" target="_blank">Odyssey Years</a>
+      </div>
+
+      <!-- ===== Exercises 部分 ===== -->
+      <div id="exercises">
+        <h1>Exercises</h1>
+        <div class="exercises-grid">
+          <div class="exercise-item">
+            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/KBR7Jya1I"></iframe>
+            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/KBR7Jya1I" target="_blank">Exercise 1 | Face</a>
+          </div>
+          
+          <div class="exercise-item">
+            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/XQLV8kI6Q"></iframe>
+            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/XQLV8kI6Q" target="_blank">Exercise 2 | Drawing Tool</a>
+          </div>
+          
+          <div class="exercise-item">
+            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/iZIgZK-3Z"></iframe>
+            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/iZIgZK-3Z" target="_blank">Exercise3 | Iterative Pattern</a>
+          </div>
+          
+          <div class="exercise-item">
+            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/1-LkwU7zr"></iframe>
+            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/1-LkwU7zr" target="_blank">Exercise3 | Iterative Pattern2</a>
+          </div>
+          
+          <div class="exercise-item">
+            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/jThE2VZCw"></iframe>
+            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/jThE2VZCw" target="_blank">Exercise 4 | 30s Music Video</a>
+          </div>
+          
+          <div class="exercise-item">
+            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/TGI2O_3Ea"></iframe>
+            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/TGI2O_3Ea" target="_blank">Exercise5 | Computational Poetry</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Vibe Coding 部分 ===== -->
+      <div id="vibe-coding">
+        <h1>Vibe Coding Experiments</h1>
+        
+        <div class="vibe-intro">
+          <p>This semester's Web Coding experience has helped me better express my inner thoughts and visualize ideas in a more precise way.</p>
+          <p>With consistent practice, I gradually learned to patiently adjust and refine the prompts I gave to AI, tweaking details step by step until the results perfectly matched my expectations.</p>
+          <p>It has been such an incredible journey that greatly improved my expressive skills and my ability to work with AI. This assignment is really meaningful and practical.</p>
+        </div>
+
+        <div class="vibe-item">
+          <div class="vibe-link">
+            <a href="https://claude.ai/public/artifacts/d578f305-6de1-4d0a-a788-9dd836784bcf" target="_blank">Vibe Coding Exercise #2</a>
+          </div>
+          <div class="vibe-description">
+            When I saw the author of the article mention the "filler" of the screen, the first thing that came to my mind was books. Recently, I have been studying Tarot cards. However, the heavy books make it very inconvenient for me to search for information. Combining the "skeuomorphic interface design" mentioned in the article, I represented each card face with different emojis and designed this website that enables me to quickly search for the meanings of the cards.
+          </div>
+        </div>
+
+        <div class="vibe-item">
+          <div class="vibe-link">
+            <a href="https://claude.ai/public/artifacts/7896f0fa-23d4-4aee-a852-d2750ab0d5d8" target="_blank">Vibe Coding Exercise #3</a>
+          </div>
+          <div class="vibe-description">
+            Reviewing today's materials has deepened my understanding of the internet. In my view, the internet connects people, illuminates lives, and provides a more orderly, manageable space along with a convenient language for communication. That's why I designed this webpage: no matter the sequence in which we click these dots, they will ultimately connect in an orderly fashion.
+          </div>
+        </div>
+
+        <div class="vibe-item">
+          <div class="vibe-link">
+            <a href="https://claude.ai/public/artifacts/651e79a8-d579-4780-b689-0d7a6c7945f8" target="_blank">Vibe Coding Exercise #4</a>
+          </div>
+          <div class="vibe-description">
+            After visiting Molly Soda's personal website, I fell in love with her style of works. Moreover, this website is like an archive and is in series, which became my source of inspiration. So I also made a folder to collect my life.
+          </div>
+        </div>
+
+        <div class="vibe-item">
+          <div class="vibe-link">
+            <a href="https://claude.ai/public/artifacts/7b73f830-607b-464f-aa33-11bbad2db1c9" target="_blank">Vibe Coding Exercise #5</a>
+          </div>
+          <div class="vibe-description">
+            In this speech, Adichie shared her personal experiences with us, encouraging us to reject single stories and embrace multiple facets. Whether it is individuals or groups, they are all complex and diverse. I fully agree with this view. I believe that due to different personal experiences, personalities, families and other factors, everyone has a different perspective on a certain matter. Therefore, we should maintain a multi-faceted view of a matter. At the same time, respect different things happening.
+          </div>
+        </div>
+
+        <div class="vibe-item">
+          <div class="vibe-link">
+            <a href="https://claude.ai/public/artifacts/7a4e6d4f-95fb-4d11-8696-16a535d9b256" target="_blank">Vibe Coding Exercise #6</a>
+          </div>
+          <div class="vibe-description">
+            After viewing Brandon's website, I realised that psychological disabilities deserve equal attention to physical disabilities. It was the first time I'd gained such a direct insight into how differently people with various mental health conditions perceive the world. That's why I created this webpage – to provide a quick overview of different mental health conditions and how we should interact with those affected.
+          </div>
+        </div>
+
+        <div class="vibe-item">
+          <div class="vibe-link">
+            <a href="https://claude.ai/public/artifacts/917cad83-1fd7-4c86-8a0e-a57ef47aa438" target="_blank">Vibe Coding Exercise #8</a>
+          </div>
+          <div class="vibe-description">
+            The works of Olivia Jack, especially her experiment of using drawing as a real-time coding interface, have inspired me. I think she has created a kind of dialogue between programming and hand-drawing. I think this is very special. From our hand-drawing to generating a program, I think this process is very wonderful. It feels like there is a sense of cooperation between humans and code. So I created this website. We can draw some lines on it, and then they will start to dance.
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Thoughts 部分 ===== -->
+      <div id="thoughts">
+        <h1>Thoughts</h1>
+        <div class="thoughts-text">
+          <p>Overall, this semester felt like opening the door to a brand-new world. Through constant practice and learning new knowledge here, I gradually grew from a shy, inexperienced beginner into someone more mature and confident.</p>
+          
+          <p>I still remember my first class. I had zero background in coding and never took any computer or programming courses in high school. I was totally confused and extremely nervous at the very beginning, and I even wanted to drop this course.</p>
+          
+          <p>Later, I went to office hours to ask questions and communicate with professors and TAs, which helped me ease my fears and dare to have a try. At first, I felt really anxious and stressed to present my projects in front of the whole class. Yet by listening to feedback and suggestions from teachers and classmates, I gained diverse perspectives and valuable advice. Regular in-class presentations also greatly polished my expressive and communication skills.</p>
+          
+          <p>I can clearly feel that with more practice and every finished project, my works have become more professional, and I have grown fonder of what I create. Gradually, I even fell in love with coding. I am willing to spend hours working on it, and I no longer feel timid or hesitant to try new things.</p>
+          
+          <p>I truly love this course. I hope all the knowledge and experience I have gained here can accompany me in my future study and life.</p>
+        </div>
+      </div>
+
+      <footer>Spring, 2026.</footer>
     </div>
 
-    <div>
-      <h1>Projects</h1>
-      <h2>Project 1: Interactive Audio & Visual with p5.js</h2>
-      <div style="font-size: 13px;">
-  <p>I have always believed that sound,
-    or rather music, can preserve memories.
-    Whenever I revisit tunes I heard during a particular period,
-    they invariably evoke the sensations and emotions of that time.
-    That is why I created this project. It is a book, my personal diary,
-    chronicling the twelve months of 2025. 2025 holds
-    profound significance for me—it marked my most crucial
-    application season, my 18th birthday coming-of-age ceremony,
-    and my first solo journey abroad for studies.
-    Thus, I selected the most representative photographs
-    and a song capable of evoking memories for each month.
-    We can interactively explore each page. May the code
-    grant my happiness eternal preservation.</p>
-</div>
-      <a href="https://editor.p5js.org/Angelinaaa0311/sketches/Rn2HWifjM">Final: Lorem Ipsum</a>
-      <h2>Project 2: HyperNarrative</h2>
-      <div style="font-size: 13px;">
-  <p>This project is a small interactive website inspired by story-based games.
-    Players take on the role of the main character joining
-    a fictional dating show, and make different choices throughout several days
-    of the show.  Based on all the decisions they make,
-    the website will show their personality type in relationships,
-    who they are most compatible with, and what kind of person
-    they are in love.  I made this project because I want to create
-    something fun and relaxing, while also letting people learn
-    a little more about themselves through a lighthearted game.</p>
-</div>
-      <a href="https://docs.google.com/document/d/14qKElRUXB7F5BnCX-eDPLcSlVAl-rk0qS1nDnjBvsCA/edit?tab=t.0">Concept</a><br />
-      <a href="https://angelinaaa0311.github.io/iml300/project-2/">Final: Lorem Ipsum</a>
-      <h2>Project 3: Networked Care</h2>
-      <a href="">Final: Lorem Ipsum</a>
-    </div>
-
-    <div>
-      <h1>Exercises</h1>
-      <ul>
-        <li><a href="">p5.js sketch 1</a></li>
-        <li><a href="https://editor.p5js.org/Angelinaaa0311/sketches/XQLV8kI6Q">p5.js sketch 2</a></li>
-        <li><a href="https://editor.p5js.org/Angelinaaa0311/sketches/iZIgZK-3Z">p5.js sketch 3</a></li>
-        <li><a href="https://editor.p5js.org/Angelinaaa0311/sketches/jThE2VZCw">p5.js sketch 4</a></li>
-      </ul>
-    </div>
-    <h2>p5.js Sketches Preview</h2>
-  <iframe src="" width="400" height="400"></iframe>
-  <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/XQLV8kI6Q" width="400" height="400"></iframe>
-  <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/iZIgZK-3Z" width="400" height="400"></iframe>
-  <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/jThE2VZCw" width="400" height="400"></iframe>
-
-    <h1>Vibe Coding Experiments</h1>
-    <a href="https://angelinaaa0311.github.io/iml300/vibe-coding/">Tarot Learning</a>
-
-    <!--add a h1 element called 'Thoughts' Below-->
-    <h1>Thoughts</h1>
-
-    <footer>Fall, 2025.</footer>
+    <!-- 星星生成脚本 -->
+    <script>
+      (function() {
+        const container = document.getElementById('stars-container');
+        const numberOfStars = 19;
+        
+        function createStar() {
+          const starNumber = Math.floor(Math.random() * numberOfStars) + 1;
+          const imagePath = `img/${starNumber}.PNG`;
+          
+          const star = document.createElement('div');
+          star.className = 'star';
+          
+          const size = Math.random() * 30 + 25;
+          star.style.width = size + 'px';
+          star.style.height = size + 'px';
+          
+          const padding = 40;
+          const maxX = window.innerWidth - size - padding;
+          const maxY = window.innerHeight - size - padding;
+          const posX = Math.random() * maxX + padding / 2;
+          const posY = Math.random() * maxY + padding / 2;
+          star.style.left = posX + 'px';
+          star.style.top = posY + 'px';
+          
+          const img = document.createElement('img');
+          img.src = imagePath;
+          img.alt = '星星';
+          img.onerror = function() {
+            star.style.display = 'none';
+          };
+          star.appendChild(img);
+          
+          container.appendChild(star);
+          
+          setTimeout(() => {
+            if (star.parentNode) {
+              star.remove();
+            }
+          }, 5000);
+        }
+        
+        function createStarBatch() {
+          const batchSize = Math.floor(Math.random() * 4) + 4;
+          for (let i = 0; i < batchSize; i++) {
+            setTimeout(() => {
+              createStar();
+            }, i * 150);
+          }
+        }
+        
+        function startStarCycle() {
+          createStarBatch();
+          
+          function scheduleNext() {
+            const delay = Math.random() * 1500 + 2000;
+            setTimeout(() => {
+              createStarBatch();
+              scheduleNext();
+            }, delay);
+          }
+          
+          scheduleNext();
+        }
+        
+        function occasionalSoloStar() {
+          setInterval(() => {
+            if (Math.random() > 0.6) {
+              createStar();
+            }
+          }, 1500);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => {
+            startStarCycle();
+            occasionalSoloStar();
+          });
+        } else {
+          startStarCycle();
+          occasionalSoloStar();
+        }
+      })();
+      
+      function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offset = 160;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    </script>
   </body>
 </html>

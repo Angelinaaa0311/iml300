@@ -1,0 +1,369 @@
+<style>
+  body {
+    background-color: #ffdeeb;
+    margin: 0;
+    padding: 0;
+    font-family: "Bitcount Prop Single", system-ui, monospace;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    color: #a64d79;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* 星星容器 */
+  #stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .star {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    animation: starTwinkle 5s ease-in-out forwards;
+  }
+
+  .star img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  @keyframes starTwinkle {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    25% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    75% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+  }
+
+  /* 顶部边框 */
+  .top-border {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background-color: #fcc2d7;
+    z-index: 10;
+  }
+
+  .characters {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 25px;
+  }
+
+  .character-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    pointer-events: auto;
+  }
+
+  .character-group:hover {
+    transform: translateY(-8px);
+  }
+
+  .character-group:active {
+    transform: translateY(-3px) scale(0.95);
+  }
+
+  .character-img {
+    height: 70px;
+    width: auto;
+    display: block;
+  }
+
+  .character-img img {
+    height: 100%;
+    width: auto;
+    display: block;
+    pointer-events: none;
+  }
+
+  .character-label {
+    font-size: 11px;
+    color: #a64d79;
+    margin-top: 4px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  /* 主要内容区域 */
+  .content-wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 170px 20px 20px 20px;
+    text-align: center;
+  }
+
+  /* 所有标题 */
+  h1, h2, h3 {
+    font-family: "Bitcount Grid Double Ink", monospace;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "CRSV" 0.5,
+      "ELSH" 0,
+      "ELXP" 0,
+      "SZP1" 0,
+      "SZP2" 0,
+      "XPN1" 0,
+      "XPN2" 0,
+      "YPN1" 0,
+      "YPN2" 0;
+    color: #faa2c1;
+  }
+
+  h1 {
+    font-size: 50px;
+    margin-top: 40px;
+  }
+
+  .main-title {
+    font-size: 80px;
+    color: #faa2c1;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+
+  h2 {
+    font-size: 22px;
+    color: #a64d79;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: #a64d79;
+    font-weight: 400;
+  }
+
+  /* 链接 */
+  a {
+    font-family: "Bitcount Prop Single", monospace;
+    color: #a64d79;
+    text-decoration: none;
+    border-bottom: 1.5px dashed #a64d79;
+    padding-bottom: 2px;
+    font-size: 16px;
+  }
+
+  a:hover {
+    color: #c47b9a;
+    border-bottom-color: #c47b9a;
+  }
+
+  /* Exercises 网格 */
+  .exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+
+  .exercise-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    border: 2px solid #fcc2d7;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .exercise-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(252, 194, 215, 0.4);
+  }
+
+  .exercise-item iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    border: 2px solid #fcc2d7;
+    margin-bottom: 10px;
+  }
+
+  .exercise-item a {
+    margin-top: 5px;
+  }
+
+  /* Vibe Coding */
+  .vibe-intro {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+
+  .vibe-intro p {
+    margin-bottom: 15px;
+  }
+
+  .vibe-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto 25px auto;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    padding: 20px 25px;
+    border: 2px solid #fcc2d7;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .vibe-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(252, 194, 215, 0.35);
+  }
+
+  .vibe-link {
+    flex-shrink: 0;
+    width: 200px;
+    text-align: left;
+  }
+
+  .vibe-link a {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .vibe-description {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #a64d79;
+  }
+
+  /* Thoughts */
+  .thoughts-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 1.8;
+    font-size: 17px;
+  }
+
+  .thoughts-text p {
+    margin-bottom: 20px;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  /* 段落 */
+  p {
+    font-family: "Bitcount Prop Single", monospace;
+    color: #a64d79;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-size: 20px;
+  }
+
+  div[style*="font-size: 13px"] p {
+    font-family: "Bitcount Prop Single", monospace;
+    color: #a64d79;
+  }
+
+  /* 项目展示图片 */
+  .project-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    width: 600px;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid #fcc2d7;
+    box-shadow: 0 4px 15px rgba(252, 194, 215, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .project-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(252, 194, 215, 0.5);
+  }
+
+  /* footer */
+  footer {
+    font-family: "Bitcount Prop Single", monospace;
+    margin-top: 40px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 响应式 */
+  @media (max-width: 900px) {
+    .exercises-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .vibe-item {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .vibe-link {
+      width: 100%;
+    }
+    .thoughts-text {
+      text-align: center;
+    }
+    .thoughts-text p {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .exercises-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
